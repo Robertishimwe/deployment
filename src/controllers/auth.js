@@ -15,6 +15,9 @@ class Auth {
         id: foundUser.id,
         email: foundUser.email,
         roleId: foundUser.roleId,
+        firstName: foundUser.firstName,
+        lastName: foundUser.lastName,
+        userName: foundUser.userName,
       };
 
       const accessTokenObject = getToken(user, duration);
@@ -42,9 +45,9 @@ class Auth {
 
   static generateToken = async (req, res, next) => {
     try {
-      const { id, email } = req.user;
+      const { id, email, userName, firstName, lastName } = req.user;
       const { tokenId, refreshTokenId } = req;
-      const user = { id, email };
+      const user = { id, email, userName, firstName, lastName };
 
       const accessTokenObject = getToken(user, duration, tokenId);
       accessTokenObject.duration = duration;

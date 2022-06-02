@@ -29,10 +29,18 @@ class googleController {
       });
 
       await newUser.update({ isVerified: true });
+      console.log(newUser);
 
       const params = {
-        user: { id: newUser.dataValues.id, email: newUser.dataValues.email },
+        user: {
+          id: newUser.dataValues.id,
+          email: newUser.dataValues.email,
+          firstName: newUser.dataValues.firstName,
+          lastName: newUser.dataValues.lastName,
+          userName: newUser.dataValues.userName,
+        },
       };
+      console.log(params.user);
       const duration = parseInt(process.env.TOKEN_EXPIRE, 10);
       const refreshDuration = parseInt(process.env.REFRESH_EXPIRE, 10);
 
@@ -53,8 +61,8 @@ class googleController {
       return successResponse(
         res.header('Authorization', `Bearer ${accessTokenObject.token}`),
         200,
-        'logged in successfully',
         {
+          message: 'logged in successfully',
           accessToken: accessTokenObject.token,
           refreshToken: refreshTokenObject.token,
         }

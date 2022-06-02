@@ -26,7 +26,12 @@ class facebookController {
       await newUser.update({ isVerified: true });
 
       const params = {
-        user: { id: newUser.dataValues.id },
+        user: {
+          id: newUser.dataValues.id,
+          firstName: newUser.dataValues.firstName,
+          lastName: newUser.dataValues.lastName,
+          userName: newUser.dataValues.userName,
+        },
       };
       const duration = parseInt(process.env.TOKEN_EXPIRE, 10);
       const refreshDuration = parseInt(process.env.REFRESH_EXPIRE, 10);
