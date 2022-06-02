@@ -33,6 +33,7 @@ class facebookController {
           userName: newUser.dataValues.userName,
         },
       };
+      console.log(user);
       const duration = parseInt(process.env.TOKEN_EXPIRE, 10);
       const refreshDuration = parseInt(process.env.REFRESH_EXPIRE, 10);
 
