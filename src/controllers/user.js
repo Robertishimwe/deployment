@@ -69,7 +69,7 @@ class UserController {
         user.email,
         emailTokenObject.token,
         confirmTemplate(
-          `${process.env.HOST}/api/users/verify/?token=${emailTokenObject.token}`
+          `https://code-ninjas-fe-git-ft-verification-page-codeninjas.vercel.app/api/users/verify/?token=${emailTokenObject.token}`
         )
       );
 
