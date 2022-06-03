@@ -69,7 +69,7 @@ class UserController {
         user.email,
         emailTokenObject.token,
         confirmTemplate(
-          `${process.env.HOST}/api/users/verify/${emailTokenObject.token}`
+          `${process.env.HOST}/api/users/verify/?token=${emailTokenObject.token}`
         )
       );
 
