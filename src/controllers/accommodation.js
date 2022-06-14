@@ -22,7 +22,7 @@ class AccommodationController {
         );
         const imageResponse = await Promise.all(uploadImages);
         imageResponse.forEach((image) => {
-          return urls.push(image.url);
+          return urls.push(image.secure_url);
         });
         req.body = {
           ...req.body,
@@ -116,7 +116,7 @@ class AccommodationController {
         );
         const imageResponse = await Promise.all(uploadImages);
         imageResponse.forEach((image) => {
-          return imagesURLs.push(image.url);
+          return imagesURLs.push(image.secure_url);
         });
 
         req.body = {

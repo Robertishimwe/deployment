@@ -1,5 +1,5 @@
 import http from 'http';
-import socketio from 'socket.io';
+import { Server } from 'socket.io';
 import app from './app';
 import formatMessage from './utils/chat/messages';
 import {
@@ -11,7 +11,11 @@ import {
 
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
-const io = socketio(server);
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+  },
+});
 
 const botName = 'Barefoot Bot';
 

@@ -14,7 +14,7 @@ const profileCompleteSchema = Joi.object({
   maritalStatus: Joi.string().valid('Single', 'Married', 'Widowed').required(),
 });
 const profileUpdateSchema = Joi.object({
-  dob: Joi.date().iso().less('12-31-2010').max('12-31-1800'),
+  dob: Joi.date().iso().min('12-31-1850').max('12-31-2010'),
   nationality: Joi.string(),
   gender: Joi.string().valid('male', 'female', 'prefer not say'),
   preferredLanguage: Joi.string(),
